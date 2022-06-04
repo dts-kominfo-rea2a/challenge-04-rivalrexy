@@ -8,7 +8,22 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (dates, position) => {
+  if (position !== undefined) {
+    let date = new Date(dates[position]);
+    let dateUTC = date.getTime() / 1000;
+    return String(dateUTC);
+  } else {
+    let dateUTCArr = [];
+    for (let i = 0; i < dates.length; i++) {
+      let date = new Date(dates[i]);
+      let dateUTC = date.getTime() / 1000;
+      dateUTCArr.push(dateUTC);
+    }
+    dateUTCArr = dateUTCArr.sort();
+    return String(dateUTCArr.join("-"));
+  }
+};
 
 // ! JANGAN DIMODIFIKASI
 (() => {
